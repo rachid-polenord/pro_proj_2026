@@ -1,0 +1,858 @@
+/* ============================================================
+   STYLE.CSS – Styles généraux + slides
+   ============================================================
+   COULEURS PRINCIPALES (variables CSS) :
+   --blue        : #0d6efd  → couleur d'accent principale (boutons, titres, headers)
+   --blue-light  : #cfe2ff  → fond clair bleu (notes, thumbs, steps)
+   --blue-dark   : #0a58ca  → bleu foncé (disponible, non utilisé directement)
+   --bg          : #333     → fond général de la page (gris sombre)
+   --text        : #002b45  → couleur de texte principale (bleu marine foncé)
+   --white       : #ffffff  → blanc pur
+   --shadow      : 0 6px 20px rgba(0,0,0,0.08) → ombre portée des cartes
+   --radius      : 16px     → rayon d'arrondi standard
+   --nav-h       : 64px     → hauteur de la barre de navigation
+   --header-h    : 74px     → hauteur du header de slide
+   --note-h      : 56px     → hauteur de la zone note
+
+   COULEURS SECONDAIRES (en dur dans le CSS) :
+   #28a745  → vert (boutons imprimer)
+   #e7f1ff  → bleu très clair (fond des vignettes step)
+   #f8fbff  → bleu quasi blanc (fond formulaire, sections)
+   #e0e6ed  → gris bleu clair (bordure iframe)
+   #b8d0f0  → bleu doux (bordure dashed placeholder)
+   #7aaedc  → bleu moyen (texte placeholder)
+   #0078d7  → bleu Microsoft (accent titre intro slide 0)
+   #009688  → vert teal (accent titre objectifs slide 0)
+   #222     → presque noir (texte intro/objectifs slide 0)
+   #bbb     → gris clair (bordure inputs)
+   ============================================================ */
+
+/* ============================================================
+   RESET & GLOBALS
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:       #8497b0;
+  --blue-light: #8497b0;
+  --blue-dark:  #8497b0;
+  --bg:         #333;       /* fond de page gris sombre */
+  --text:       #002b45;    /* texte bleu marine foncé */
+  --white:      #ffffff;
+  --shadow:     0 6px 20px rgba(0,0,0,0.08);
+  --radius:     16px;
+  --nav-h:      64px;
+  --header-h:   74px;
+  --note-h:     56px;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--bg); /* fond gris sombre #333 */
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   SLIDES WRAPPER
+   ============================================================ */
+.slides-wrapper {
+  background: ;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--nav-h));
+  overflow: hidden;
+}
+
+.slides-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ============================================================
+   SHARED INNER LAYOUT (applies to all slides)
+   ============================================================ */
+.slide-inner {
+  max-width: 1600px;
+  margin: auto;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Common header – fond --blue (#0d6efd), texte blanc */
+.slide-inner header {
+  background: var(--blue);
+  color: white;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  flex-shrink: 0;
+  height: var(--header-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-inner header h1 { font-size: 22px; font-weight: 700; margin-bottom: 3px; }
+.slide-inner header p  { font-size: 14px; opacity: 0.85; }
+
+/* Common note – fond --blue-light (#cfe2ff), texte --text (#002b45) */
+.slide-inner .note {
+  background: var(--blue-light);
+  color: var(--text);
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.4;
+  height: var(--note-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Common main */
+.slide-inner main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+}
+
+/* ============================================================
+   SLIDE 0 – ACCUEIL
+   ============================================================ */
+#slide-0 .slide-inner main {
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cartes translucides blanc 50% */
+#slide-0 .card {
+  background: #8497b0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slide-0 .card:first-child {
+  flex: 0.5;
+}
+
+#slide-0 .intro,
+#slide-0 .objectifs {
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #222; /* quasi noir */
+  letter-spacing: 0.3px;
+}
+
+/* Accent bleu Microsoft pour le titre intro */
+#slide-0 .intro p:first-child {
+  font-weight: 600;
+  color: #0078d7;
+}
+
+/* Accent vert teal pour le titre objectifs */
+#slide-0 .objectifs p:first-child {
+  font-weight: 600;
+  color: #009688;
+}
+
+/* Style du texte ajouté : PRO et MODERNE */
+#slide-0 .intro,
+#slide-0 .objectifs {
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #222;
+  letter-spacing: 0.3px;
+}
+
+#slide-0 .intro p:first-child {
+  font-weight: 600;
+  color: #0078d7; /* ton accent moderne bleu */
+}
+
+#slide-0 .objectifs p:first-child {
+  font-weight: 600;
+  color: #009688; /* accent vert moderne */
+}
+
+/* ============================================================
+   SLIDE 1 – PHASE 1
+   ============================================================ */
+#slide-1 .slide-inner main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 200px;
+  gap: 20px;
+}
+
+#slide-1 .left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* Cartes blanches */
+#slide-1 .card {
+  background: white;
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#slide-1 .card h2 { color: var(--blue); margin-bottom: 10px; font-size: 15px; }
+
+#slide-1 .steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Vignettes – fond #e7f1ff (bleu très clair) */
+#slide-1 .step {
+  background: #e7f1ff;
+  border-radius: 12px;
+  padding: 10px;
+  flex: 1 1 150px;
+  max-width: 200px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  text-align: center;
+}
+
+#slide-1 .step .title { font-size: 14px; line-height: 1.3; font-weight: 600; }
+
+/* Thumb – fond --blue-light (#cfe2ff) */
+#slide-1 .step .thumb {
+  width: 100%;
+  min-height: 160px;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: var(--blue-light);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bouton Voir – fond --blue (#0d6efd), texte blanc */
+#slide-1 .step button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+/* Fiche de suivi – fond blanc */
+#slide-1 .fiche {
+  background: white;
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+#slide-1 .fiche-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+#slide-1 .fiche-header h2 { color: var(--blue); font-size: 15px; }
+
+#slide-1 .fiche-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Bouton switch inactif – fond #e7f1ff, texte --blue, bordure --blue */
+#slide-1 .switch-btn {
+  background: #e7f1ff;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+/* Bouton switch actif – fond --blue, texte blanc */
+#slide-1 .switch-btn.active {
+  background: var(--blue);
+  color: white;
+}
+
+/* Bouton imprimer – fond vert #28a745, texte blanc */
+#slide-1 .print-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+/* Conteneur iframe – bordure #e0e6ed (gris bleu clair) */
+#slide-1 .fiche-iframe-container {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid #e0e6ed;
+  background: white;
+  overflow: hidden;
+}
+
+#slide-1 .fiche-iframe-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ============================================================
+   SLIDE 2 – PHASE 2
+   ============================================================ */
+#slide-2 .slide-inner main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 200px;
+  gap: 20px;
+}
+
+#slide-2 .left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+#slide-2 .card {
+  background: white;
+  padding: 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#slide-2 .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+#slide-2 .card-header h2 { color: var(--blue); font-size: 15px; }
+
+/* Bouton imprimer – fond vert #28a745, texte blanc */
+#slide-2 .print-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+/* Formulaire – fond #f8fbff (bleu quasi blanc) */
+#slide-2 .fiche-form {
+  flex: 1;
+  background: #f8fbff;
+  padding: 4px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: auto;
+}
+
+/* Inputs texte – bordure basse #bbb */
+#slide-2 input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #bbb;
+  padding: 2px 4px;
+  font-size: 13px;
+  width: 100%;
+  background: transparent;
+  font-family: inherit;
+}
+
+/* Sections formulaire – fond #f8fbff */
+#slide-2 .section {
+  background: #f8fbff;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+/* Titre section – couleur --blue */
+#slide-2 .section-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--blue);
+  font-size: 14px;
+}
+
+#slide-2 .line {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+#slide-2 .line label { font-weight: 600; font-size: 13px; }
+
+#slide-2 .inline { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+#slide-2 .inline label { font-size: 13px; display: flex; align-items: center; gap: 4px; }
+
+#slide-2 .choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  font-size: 12px;
+}
+
+#slide-2 .choices label { display: flex; align-items: center; font-size: 12px; gap: 3px; }
+
+#slide-2 .header-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+#slide-2 .header-row .field-pair { display: flex; align-items: center; gap: 4px; flex: 1; }
+#slide-2 .header-row .field-pair label { font-size: 13px; font-weight: 600; white-space: nowrap; }
+
+#slide-2 .fiche {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+#slide-2 .fiche .card {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+#slide-2 .fiche .card h2 { color: var(--blue); margin-bottom: 15px; font-size: 16px; }
+#slide-2 .fiche ul { list-style: disc; padding-left: 20px; font-size: 14px; line-height: 1.6; }
+
+/* ============================================================
+   SLIDE 3 – PHASE 3
+   ============================================================ */
+#slide-3 .slide-inner main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 200px;
+  gap: 20px;
+}
+
+#slide-3 .left,
+#slide-3 .center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+#slide-3 .card {
+  background: white;
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#slide-3 .card h2 {
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+#slide-3 .steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Bouton Plus d'infos – fond --blue, texte blanc */
+#slide-3 .more-btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  align-self: center;
+  font-family: inherit;
+}
+
+/* Vignettes – fond #e7f1ff */
+#slide-3 .step {
+  background: red;
+  border-radius: 12px;
+  padding: 10px;
+  flex: 1 1 150px;
+  max-width: 200px;
+  min-height: 200px;
+  max-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  text-align: center;
+}
+
+#slide-3 .step .title { font-size: 14px; line-height: 1.3; font-weight: 600; }
+
+/* Thumb – fond --blue-light (#cfe2ff) */
+#slide-3 .step .thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: var(--blue-light);
+}
+
+/* Bouton Voir – fond --blue, texte blanc */
+#slide-3 .step button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+/* ============================================================
+   SLIDES 4 & 5 – PLACEHOLDERS MODULABLES
+   ============================================================ */
+.placeholder-slide .slide-inner main {
+  display: flex;
+  gap: 16px;
+}
+
+/* Zone principale – fond blanc */
+.placeholder-slide .main-zone {
+  flex: 1;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* Bloc placeholder – fond --bg (#333), bordure dashed #b8d0f0, texte #7aaedc */
+.placeholder-slide .ph-block {
+  background: var(--bg);
+  border: 2px dashed #b8d0f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7aaedc;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  min-height: 80px;
+  flex: 1;
+}
+
+.placeholder-slide .ph-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+
+.placeholder-slide .side-zone {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.placeholder-slide .side-zone .ph-block {
+  flex: 1;
+  min-height: 60px;
+}
+
+/* ============================================================
+   SHARED RIGHT COLUMN (phases 1, 2, 3)
+   ============================================================ */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+/* Bloc infos clés – fond blanc, titre --blue */
+.right-column .top {
+  height: 25%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 15px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.right-column .top .rc-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--blue);
+}
+
+.right-column .top .rc-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-column .stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-column .stack .square {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 0;
+  min-height: 0;
+}
+
+.right-column .stack > .square {
+  flex: 1;
+}
+
+.right-column .stack .square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.right-column .stack .cal-item {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+/* Étiquette calendrier – fond --blue à 75%, texte blanc */
+.right-column .stack .cal-label {
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: rgba(13,110,253,0.75);
+  padding: 2px 7px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+.right-column .stack .cal-item .square {
+  height: 100%;
+  min-height: 0;
+}
+
+/* ============================================================
+   SLIDE TRANSITION OVERLAY
+   ============================================================ */
+.slide-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--blue); /* --blue lors de la transition */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 500;
+  transition: opacity 0.15s ease;
+}
+
+/* ============================================================
+   RESPONSIVE GÉNÉRAL
+   ============================================================ */
+@media (max-width: 1024px) {
+  .slide-inner main {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .right-column {
+    display: none !important;
+  }
+  .placeholder-slide .side-zone {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 56px;
+    --header-h: 60px;
+    --note-h: 48px;
+  }
+
+  .slide {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: calc(100vh - var(--nav-h));
+  }
+
+  .slides-wrapper {
+    overflow-y: visible !important;
+  }
+
+  .slide-inner {
+    height: auto !important;
+    min-height: calc(100vh - var(--nav-h));
+  }
+
+  .slide-inner main {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .slide-inner header {
+    height: auto !important;
+    padding: 12px 16px !important;
+  }
+
+  .slide-inner .note {
+    height: auto !important;
+    min-height: 44px !important;
+  }
+
+  #slide-1 .left,
+  #slide-2 .left,
+  #slide-3 .left,
+  #slide-3 .center {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  #slide-1 .card,
+  #slide-2 .card,
+  #slide-3 .card {
+    height: auto !important;
+    min-height: 200px !important;
+    overflow: visible !important;
+  }
+
+  #slide-1 .fiche,
+  #slide-2 .fiche {
+    height: auto !important;
+    min-height: 450px !important;
+    overflow: visible !important;
+  }
+
+  #slide-1 .fiche-iframe-container {
+    height: 400px !important;
+    position: relative !important;
+  }
+
+  #slide-1 .steps-container,
+  #slide-3 .steps-container {
+    flex-wrap: wrap !important;
+  }
+
+  #slide-1 .step,
+  #slide-3 .step {
+    flex: 1 1 140px !important;
+    max-width: none !important;
+  }
+
+  .right-column { display: none !important; }
+  .placeholder-slide .side-zone { display: none !important; }
+  .placeholder-slide .ph-grid-2 { grid-template-columns: 1fr !important; }
+}

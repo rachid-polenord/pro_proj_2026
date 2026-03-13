@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet – Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="style.css">
+<script src="main.js"></script>
+</head>
+<body>
+
+<!-- ============================================================
+     GLOBAL NAV
+     ============================================================ -->
+<nav class="global-nav">
+  <div class="nav-logo">Propositions Animations Etude PoleNord </div>
+
+  <div class="nav-timeline" id="navTimeline">
+
+    <div class="nav-step" data-index="0" onclick="goTo(0)">
+      <div class="nav-step-inner">
+        <div class="nav-dot">0</div>
+        <span class="nav-step-label">Accueil</span>
+      </div>
+    </div>
+
+    <div class="nav-connector" id="conn-0"></div>
+
+    <div class="nav-step" data-index="1" onclick="goTo(1)">
+      <div class="nav-step-inner">
+        <div class="nav-dot">1</div>
+        <span class="nav-step-label">Phase de test</span>
+      </div>
+    </div>
+
+    <div class="nav-connector" id="conn-1"></div>
+
+    <div class="nav-step" data-index="2" onclick="goTo(2)">
+      <div class="nav-step-inner">
+        <div class="nav-dot">2</div>
+        <span class="nav-step-label">Évaluation</span>
+      </div>
+    </div>
+
+    <div class="nav-connector" id="conn-2"></div>
+
+    <div class="nav-step" data-index="3" onclick="goTo(3)">
+      <div class="nav-step-inner">
+        <div class="nav-dot">3</div>
+        <span class="nav-step-label">Lancement</span>
+      </div>
+    </div>
+
+    <div class="nav-connector" id="conn-3"></div>
+
+    <!-- NOUVELLE ÉTAPE 4 -->
+    <div class="nav-step" data-index="4" onclick="goTo(4)">
+      <div class="nav-step-inner">
+        <div class="nav-dot">4</div>
+        <span class="nav-step-label">Étape 4</span>
+      </div>
+    </div>
+
+    <div class="nav-connector" id="conn-4"></div>
+
+    <!-- NOUVELLE ÉTAPE 5 -->
+    <div class="nav-step" data-index="5" onclick="goTo(5)">
+      <div class="nav-step-inner">
+        <div class="nav-dot">5</div>
+        <span class="nav-step-label">Étape 5</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav-arrows">
+    <button class="nav-arrow" id="btnPrev" onclick="prev()" title="Précédent">&#8592;</button>
+    <button class="nav-arrow" id="btnNext" onclick="next()" title="Suivant">&#8594;</button>
+  </div>
+</nav>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============================================================
+     SLIDES
+     ============================================================ -->
+<div class="slides-wrapper">
+  <div class="slides-track" id="slidesTrack">
+
+<!-- ==================== SLIDE 0 – ACCUEIL ==================== -->
+<section class="slide" id="slide-0">
+  <div class="slide-inner">
+    <header>
+      <h1>Bienvenue</h1>
+      <p>Page d'accueil</p>
+    </header>
+    <div class="note">
+      Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page Texte de mise en page  
+    </div>
+    <main>
+      <div class="card">
+        <div class="intro">
+          <p>Bienvenue sur notre espace interactif.</p>
+          <p>Découvrez une présentation claire et visuelle de nos activités.</p>
+          <p>Plongez dans une expérience fluide et inspirante.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="objectifs">
+          <p>Nos objectifs&nbsp;: clarté, design et impact.</p>
+          <p>Offrir une navigation intuitive et des contenus de qualité.</p>
+          <p>Créer une atmosphère moderne, élégante et accueillante.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+
+    <!-- ==================== SLIDE 1 – PHASE 1 ==================== -->
+    <section class="slide" id="slide-1">
+      <div class="slide-inner">
+        <header>
+          <h1>Étape 1 – Phase de test</h1>
+          <p>Organisation et faisabilité des animations numériques</p>
+        </header>
+        <div class="note">
+          Ici petite note informative Ici petite note informative Ici petite note informative Ici petite note informative 
+        </div>
+        <main>
+
+          <div class="left">
+            <div class="card">
+              <h2>👧 Enfants</h2>
+              <div class="steps-container">
+                <div class="step">
+                  <div class="title">Séance 1 – Souris</div>
+                  <div class="thumb">  <img src="images/01_souris.png" alt="Séance 3"></div>
+                  <button>Voir</button>
+                </div>
+                <div class="step">
+                  <div class="title">Séance 2 – Clavier</div>
+                  <div class="thumb">  <img src="images/02_clavier.png" alt="Séance 3"></div>
+                  <button>Voir</button>
+                </div>
+                <div class="step">
+                  <div class="title">Séance 3 – Paint</div>
+                  <div class="thumb">  <img src="images/03_dessin.png" alt="Séance 3"></div>
+                  <button>Voir</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h2>👥 Collègues</h2>
+              <div class="steps-container">
+                <div class="step">
+                  <div class="title">Séance 1 – Word</div>
+                  <div class="thumb">  <img src="images/04_texte.png" alt="Séance 3"></div>
+                  <button>Voir</button>
+                </div>
+                <div class="step">
+                  <div class="title">Séance 2 – Outlook</div>
+                  <div class="thumb">  <img src="images/05_outlook.png" alt="Séance 3"></div>
+                  <button>Voir</button>
+                </div>
+                <div class="step">
+                  <div class="title">Séance 3 – Excel</div>
+                  <div class="thumb">  <img src="images/06_excel.png" alt="Séance 3"></div>
+                  <button>Voir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fiche" style="background:white;padding:15px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.08);display:flex;flex-direction:column;gap:10px;overflow:hidden;flex:1;margin:0 0 0 0;">
+            <div class="fiche-header">
+              <h2>📋 Fiche de suivi</h2>
+              <div class="fiche-controls">
+                <button class="switch-btn active" id="btnEnfants" onclick="showFiche('enfants')">👧 Enfants</button>
+                <button class="switch-btn" id="btnCollegues" onclick="showFiche('collegues')">👥 Collègues</button>
+                <button class="print-btn" onclick="printFiche()">🖨️ Imprimer</button>
+              </div>
+            </div>
+            <div class="fiche-iframe-container">
+              <iframe id="ficheIframe"></iframe>
+            </div>
+          </div>
+
+          <div class="right-column">
+            <div class="top">
+              <div class="rc-title">Infos Clés</div>
+              <div class="rc-row"><span>Phase</span><span>1 / 3</span></div>
+              <div class="rc-row"><span>Type</span><span>Faisabilité</span></div>
+              <div class="rc-row"><span>Séances</span><span>3</span></div>
+              <div class="rc-row"><span>Durée</span><span>3 sem.</span></div>
+            </div>
+            <div class="stack">
+              <div class="cal-item"><div class="cal-label">Février</div><div class="square"><img src="images/calendrier.jpg" alt="Image 1"></div></div>
+              <div class="cal-item"><div class="cal-label">Mars</div><div class="square"><img src="images/calendrier.jpg" alt="Image 2"></div></div>
+              <div class="cal-item"><div class="cal-label">Avril</div><div class="square"><img src="images/calendrier.jpg" alt="Image 3"></div></div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 2 – PHASE 2 ==================== -->
+    <section class="slide" id="slide-2">
+      <div class="slide-inner">
+        <header>
+          <h1>Étape 2 – Évaluation et ajustement</h1>
+          <p>Fiche d'évaluation et d'ajustement des animations numériques</p>
+        </header>
+        <div class="note">
+          Complétez cette fiche après chaque séance pour évaluer la disposition et ajuster si nécessaire.
+        </div>
+        <main>
+
+          <div class="left">
+            <div class="card">
+              <div class="card-header">
+                <h2>📋 Fiche d'évaluation</h2>
+                <button class="print-btn" onclick="window.print()">🖨️ Imprimer</button>
+              </div>
+              <div class="fiche-form">
+                <div class="section">
+                  <div class="header-row">
+                    <div class="field-pair"><label>Date</label><input type="text"></div>
+                    <div class="field-pair"><label>Activité</label><input type="text"></div>
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Disposition choisie</div>
+                  <div class="inline">
+                    <label><input type="checkbox"> Table en longueur</label>
+                    <label><input type="checkbox"> 2 par table (en haut)</label>
+                    <label><input type="checkbox"> 2 par table (en bas)</label>
+                  </div>
+                  <div class="line"><label>Commentaires</label><input type="text"></div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Évaluation de l'espace</div>
+                  <div class="line">
+                    <span>Circulation</span>
+                    <div class="choices">
+                      <label><input type="checkbox"> Suffisante</label>
+                      <label><input type="checkbox"> Limitée</label>
+                      <label><input type="checkbox"> Bloquée</label>
+                    </div>
+                  </div>
+                  <div class="line"><label>Commentaires</label><input type="text"></div>
+                  <div class="line">
+                    <span>Accès</span>
+                    <div class="choices">
+                      <label><input type="checkbox"> Facile</label>
+                      <label><input type="checkbox"> Difficile</label>
+                      <label><input type="checkbox"> Impraticable</label>
+                    </div>
+                  </div>
+                  <div class="line"><label>Commentaires</label><input type="text"></div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Matériel &amp; installation</div>
+                  <div class="line">
+                    <span>Déplacement PC</span>
+                    <div class="choices">
+                      <label><input type="checkbox"> Facile</label>
+                      <label><input type="checkbox"> Difficile</label>
+                      <label><input type="checkbox"> Impossible</label>
+                    </div>
+                  </div>
+                  <div class="line"><label>Commentaires</label><input type="text"></div>
+                  <div class="line">
+                    <span>Raccordements</span>
+                    <div class="choices">
+                      <label><input type="checkbox"> OK</label>
+                      <label><input type="checkbox"> À améliorer</label>
+                      <label><input type="checkbox"> Problème</label>
+                    </div>
+                  </div>
+                  <div class="line"><label>Commentaires</label><input type="text"></div>
+                  <div class="line">
+                    <span>Équipements</span>
+                    <div class="choices">
+                      <label><input type="checkbox"> Suffisants</label>
+                      <label><input type="checkbox"> Limités</label>
+                      <label><input type="checkbox"> Insuffisants</label>
+                    </div>
+                  </div>
+                  <div class="line"><label>Commentaires</label><input type="text"></div>
+                </div>
+                <div class="section">
+                  <div class="section-title">Observations et ajustements</div>
+                  <div class="line"><label>Points positifs</label><input type="text"></div>
+                  <div class="line"><label>Difficultés</label><input type="text"></div>
+                  <div class="line"><label>Ajustements</label><input type="text"></div>
+                  <div class="line"><label>Mesures à prendre</label><input type="text"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fiche" style="display:flex;flex-direction:column;gap:20px;overflow:hidden;flex:1;">
+            <div class="card" style="flex:1;padding:20px;overflow:auto;">
+              <h2>📄 Bloc 1</h2>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li>Sed do eiusmod tempor incididunt ut labore et dolore.</li>
+                <li>Magna aliqua. Ut enim ad minim veniam.</li>
+                <li>Quis nostrud exercitation ullamco laboris.</li>
+              </ul>
+            </div>
+            <div class="card" style="flex:1;padding:20px;overflow:auto;">
+              <h2>📄 Bloc 2</h2>
+              <ul>
+                <li>Nisi ut aliquip ex ea commodo consequat.</li>
+                <li>Duis aute irure dolor in reprehenderit.</li>
+                <li>In voluptate velit esse cillum dolore.</li>
+                <li>Eu fugiat nulla pariatur.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="right-column">
+            <div class="top">
+              <div class="rc-title">Infos Clés</div>
+              <div class="rc-row"><span>Phase</span><span>2 / 3</span></div>
+              <div class="rc-row"><span>Type</span><span>Evaluation</span></div>
+              <div class="rc-row"><span>Séances</span><span>3</span></div>
+              <div class="rc-row"><span>Durée</span><span>3 sem.</span></div>
+            </div>
+            <div class="stack">
+              <div class="cal-item"><div class="cal-label">Février</div><div class="square"><img src="images/calendrier.jpg" alt="Image 1"></div></div>
+              <div class="cal-item"><div class="cal-label">Mars</div><div class="square"><img src="images/calendrier.jpg" alt="Image 2"></div></div>
+              <div class="cal-item"><div class="cal-label">Avril</div><div class="square"><img src="images/calendrier.jpg" alt="Image 3"></div></div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 3 – PHASE 3 ==================== -->
+    <section class="slide" id="slide-3">
+      <div class="slide-inner">
+        <header>
+          <h1>Phase 3 – Lancement</h1>
+          <p>Sous-titre</p>
+        </header>
+        <div class="note">
+          Note informative
+        </div>
+        <main>
+
+          <div class="left">
+            <div class="card">
+              <h2>Titre vignettes section 1</h2>
+              <div class="steps-container">
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+              </div>
+              <button class="more-btn">Plus d'infos</button>
+            </div>
+            <div class="card">
+              <h2>Titre vignettes section 2</h2>
+              <div class="steps-container">
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+              </div>
+              <button class="more-btn">Plus d'infos</button>
+            </div>
+          </div>
+
+          <div class="center">
+            <div class="card">
+              <h2>Titre vignettes section 1</h2>
+              <div class="steps-container">
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+              </div>
+              <button class="more-btn">Plus d'infos</button>
+            </div>
+            <div class="card">
+              <h2>Titre vignettes section 2</h2>
+              <div class="steps-container">
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+                <div class="step"><div class="title">Titre vignette</div><div class="thumb"><img src="images/01_souris.png" alt="Séance 3"></div><button>Voir</button></div>
+              </div>
+              <button class="more-btn">Plus d'infos</button>
+            </div>
+          </div>
+
+          <div class="right-column">
+            <div class="top">
+              <div class="rc-title">Infos Clés</div>
+              <div class="rc-row"><span>Phase</span><span>3 / 3</span></div>
+              <div class="rc-row"><span>Type</span><span>Lancement</span></div>
+              <div class="rc-row"><span>Séances</span><span>3</span></div>
+              <div class="rc-row"><span>Durée</span><span>3 sem.</span></div>
+            </div>
+            <div class="stack">
+              <div class="cal-item"><div class="cal-label">Avril</div><div class="square"><img src="images/calendrier.jpg" alt="Photo 1"></div></div>
+              <div class="cal-item"><div class="cal-label">Mai</div><div class="square"><img src="images/calendrier.jpg" alt="Photo 2"></div></div>
+              <div class="cal-item"><div class="cal-label">Juin</div><div class="square"><img src="images/calendrier.jpg" alt="Photo 3"></div></div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 4 – PLACEHOLDER ==================== -->
+    <section class="slide placeholder-slide" id="slide-4">
+      <div class="slide-inner">
+
+        <header>
+          <h1>Étape 4 – À définir</h1>
+          <p>Sous-titre de l'étape 4</p>
+        </header>
+
+        <div class="note">
+          Note informative de l'étape 4
+        </div>
+
+        <main>
+
+          <!-- Zone principale modulable -->
+          <div class="main-zone">
+
+            <div class="carousel-wrapper">
+              <div class="carousel-image-area">
+                <img id="carouselImg" src="images/calendrier_1.png" alt="Période 1">
+              </div>
+              <div class="carousel-bottom">
+                <div class="carousel-title" id="carouselTitle">Période 1</div>
+                <div class="carousel-controls">
+                  <button class="carousel-btn" id="carouselPrev" onclick="carouselPrev()">&#8592;</button>
+                  <div class="carousel-dots" id="carouselDots"></div>
+                  <button class="carousel-btn" id="carouselNext" onclick="carouselNext()">&#8594;</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Colonne latérale optionnelle — supprimer si inutile -->
+          <div class="side-zone">
+            <div class="ph-block">Info A</div>
+            <div class="ph-block">Info B</div>
+            <div class="ph-block">Info C</div>
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 5 – PLACEHOLDER ==================== -->
+    <section class="slide placeholder-slide" id="slide-5">
+      <div class="slide-inner">
+
+        <header>
+          <h1>Étape 5 – À définir</h1>
+          <p>Sous-titre de l'étape 5</p>
+        </header>
+
+        <div class="note">
+          Note informative de l'étape 5
+        </div>
+
+        <main>
+
+          <!-- Zone principale modulable -->
+          <div class="main-zone">
+
+            
+
+          </div>
+
+          <!-- Colonne latérale optionnelle -->
+          <div class="side-zone">
+            <div class="ph-block">Info A</div>
+            <div class="ph-block">Info B</div>
+            <div class="ph-block">Info C</div>
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+  </div><!-- /slides-track -->
+</div><!-- /slides-wrapper -->
+
+
+<style>
+/* ======= CAROUSEL SLIDE 4 ======= */
+.carousel-wrapper {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px 20px 16px;
+  box-sizing: border-box;
+}
+
+.carousel-image-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.carousel-image-area img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-image-area img.fade {
+  opacity: 0;
+}
+
+.carousel-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-top: 12px;
+}
+
+.carousel-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #002b45;
+  letter-spacing: 0.02em;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #0d6efd;
+  background: transparent;
+  color: #0d6efd;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(13,110,253,0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-dot.active {
+  background: #0d6efd;
+  transform: scale(1.3);
+}
+</style>
+
+<script>
+/* ======= CAROUSEL JS ======= */
+
+// ── LISTE DES DIAPOSITIVES ──
+// Ajouter ou modifier vos images et titres ici :
+const carouselSlides = [
+  { img: 'images/calendrier_1.png', title: 'Période 1' },
+  { img: 'images/calendrier_2.png', title: 'Période 2' },
+  { img: 'images/calendrier_3.png', title: 'Période 3' },
+  { img: 'images/calendrier_4.png', title: 'Période 4' },
+];
+
+let carouselIndex = 0;
+
+function carouselRender() {
+  const img   = document.getElementById('carouselImg');
+  const title = document.getElementById('carouselTitle');
+  const dots  = document.getElementById('carouselDots');
+  if (!img || !title || !dots) return;
+
+  img.classList.add('fade');
+  setTimeout(() => {
+    img.src = carouselSlides[carouselIndex].img;
+    img.alt = carouselSlides[carouselIndex].title;
+    title.textContent = carouselSlides[carouselIndex].title;
+    img.classList.remove('fade');
+  }, 150);
+
+  dots.innerHTML = '';
+  carouselSlides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'carousel-dot' + (i === carouselIndex ? ' active' : '');
+    d.onclick = () => { carouselIndex = i; carouselRender(); };
+    dots.appendChild(d);
+  });
+
+  document.getElementById('carouselPrev').disabled = carouselIndex === 0;
+  document.getElementById('carouselNext').disabled = carouselIndex === carouselSlides.length - 1;
+}
+
+// Exposer en global pour les onclick du HTML
+window.carouselPrev = function() {
+  if (carouselIndex > 0) { carouselIndex--; carouselRender(); }
+};
+window.carouselNext = function() {
+  if (carouselIndex < carouselSlides.length - 1) { carouselIndex++; carouselRender(); }
+};
+
+document.addEventListener('DOMContentLoaded', carouselRender);
+</script>
+</body>
